@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { isWord } from './services/CheckWordService';
-import { CrawlerSynonymous } from './services/CrawlerSynonymous';
+import { isWord } from './utils/checkWord';
+import { getPortugueseSynonymous } from './services/getPortugueseSynonymous';
 
 const app = express();
 app.use(express.json());
@@ -11,17 +11,23 @@ app.get('/', (_, res) => {
   return res.json({ message: 'Hello World' });
 });
 
-app.get('/search', (req, res) => {
-  const { word } = req.query;
+app.get('/search', async (req, res) => {
+  const { q } = req.query;
 
-  if (word) {
-    const isRealWord = isWord(word as string);
+  console.log(q);
+
+  if (q) {
+    const isRealWord = isWord(q as string);
 
     if (!isRealWord) {
       return res.status(400).json({ error: 'Invalid word' });
     }
-    
-    CrawlerSynonymous(word as string);
+
+    const result = await getPortugueseSynonymous(q as string);
+
+    if (result instanceof Error) {
+      return res.status(500).json({ error: 'Internal server error' });
+    }
   } else {
     return res.status(400).json({ error: 'Invalid parameters' });
   }
