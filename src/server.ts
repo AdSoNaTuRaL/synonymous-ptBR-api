@@ -14,8 +14,6 @@ app.get('/', (_, res) => {
 app.get('/search', async (req, res) => {
   const { q } = req.query;
 
-  console.log(q);
-
   if (q) {
     const isRealWord = isWord(q as string);
 

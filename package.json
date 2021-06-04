@@ -1,8 +1,8 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
@@ -11,6 +11,7 @@
     "cheerio": "^1.0.0-rc.9",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "iconv-lite": "^0.6.3",
     "request": "^2.88.2"
   },
   "devDependencies": {
