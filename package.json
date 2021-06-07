@@ -2,7 +2,6 @@
   "name": "back-end",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
