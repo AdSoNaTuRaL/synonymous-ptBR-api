@@ -1,8 +1,15 @@
 import request from 'request';
 import cheerio from 'cheerio';
+
+type Callback = {
+  (error: boolean, messageError?: string, result?: string | string[]): void;
+};
 // import incov from 'iconv-lite';
 
-export async function getPortugueseSynonymous(word: string): Promise<any> {
+export function getPortugueseSynonymous(
+  word: string,
+  callback: Callback,
+): void {
   const URL = 'https://www.sinonimos.com.br';
 
   const newURL = `${URL}/${word}`;
@@ -12,26 +19,22 @@ export async function getPortugueseSynonymous(word: string): Promise<any> {
     // const body1 = incov.decode(body, encoding);
 
     if (error) {
-      return new Error('Error in the request');
+      // https://github.com/request/request-promise#thenonfulfilled-onrejected
+      return callback(true, error);
     }
 
     if (response.statusCode === 200) {
       const $ = cheerio.load(body, { decodeEntities: false });
-      const sinonimos = $('.sentido').text();
 
-      console.log(sinonimos);
+      const sinonimos = $('.sentido').text();
 
       const arraySynonymous = sinonimos.split(':').filter(element => element);
 
-      console.log(arraySynonymous);
-
       const result = Object.assign({}, arraySynonymous);
 
-      console.log(result);
-
-      return result;
+      return callback(false, '', result);
     } else {
-      return new Error('Internal server error');
+      return callback(true, 'Internal server error');
     }
   });
 }
