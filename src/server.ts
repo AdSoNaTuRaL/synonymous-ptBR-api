@@ -11,7 +11,7 @@ app.get('/', (_, res) => {
   return res.json({ message: 'Hello World' });
 });
 
-app.get('/search', async (req, res) => {
+app.get('/search', (req, res) => {
   const { q } = req.query;
 
   if (q) {
@@ -21,11 +21,13 @@ app.get('/search', async (req, res) => {
       return res.status(400).json({ error: 'Invalid word' });
     }
 
-    const result = await getPortugueseSynonymous(q as string);
+    getPortugueseSynonymous(q as string, (error, errorMessage, result) => {
+      if (error) {
+        return res.status(500).json({ error, errorMessage });
+      }
 
-    if (result instanceof Error) {
-      return res.status(500).json({ error: 'Internal server error' });
-    }
+      return res.json(result);
+    });
   } else {
     return res.status(400).json({ error: 'Invalid parameters' });
   }
