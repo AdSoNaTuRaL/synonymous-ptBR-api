@@ -26,7 +26,7 @@ app.get('/search', (req, res) => {
         return res.status(500).json({ error, errorMessage });
       }
 
-      return res.json(result);
+      return res.json({ synonyms: result });
     });
   } else {
     return res.status(400).json({ error: 'Invalid parameters' });
