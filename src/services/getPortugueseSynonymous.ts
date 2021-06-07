@@ -1,38 +1,38 @@
 import request from 'request';
 import cheerio from 'cheerio';
+import incov from 'iconv-lite';
 
 type Callback = {
   (error: boolean, messageError?: string, result?: string | string[]): void;
 };
-// import incov from 'iconv-lite';
 
 export function getPortugueseSynonymous(
   word: string,
   callback: Callback,
 ): void {
-  const URL = 'https://www.sinonimos.com.br';
+  const url = `https://www.sinonimos.com.br/${word}`;
 
-  const newURL = `${URL}/${word}`;
-  // const encoding = 'UTF-8';
-
-  request(newURL, (error, response, body) => {
-    // const body1 = incov.decode(body, encoding);
-
+  request({ url, encoding: null }, (error, response, body) => {
     if (error) {
-      // https://github.com/request/request-promise#thenonfulfilled-onrejected
       return callback(true, error);
     }
 
     if (response.statusCode === 200) {
+      body = incov.decode(body, 'ISO-8859-1');
+
       const $ = cheerio.load(body, { decodeEntities: false });
 
-      const sinonimos = $('.sentido').text();
+      const synonymsArray: string[] = [];
 
-      const arraySynonymous = sinonimos.split(':').filter(element => element);
+      $('a[class=sinonimo]').each((_, elem) => {
+        synonymsArray.push($(elem).text());
+      });
 
-      const result = Object.assign({}, arraySynonymous);
+      synonymsArray.join(', ');
 
-      return callback(false, '', result);
+      const cleanSynonymsArray = synonymsArray.filter(element => element);
+
+      return callback(false, '', cleanSynonymsArray);
     } else {
       return callback(true, 'Internal server error');
     }
