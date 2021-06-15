@@ -12,7 +12,7 @@ router.get('/', (_, res) => {
   });
 });
 
-router.get('/synonym', (req, res) => {
+router.get('/synonym', async (req, res) => {
   const { q } = req.query;
 
   if (q) {
@@ -22,13 +22,9 @@ router.get('/synonym', (req, res) => {
       return res.status(400).json({ error: 'Invalid word' });
     }
 
-    getPortugueseSynonymous(q as string, (error, errorMessage, result) => {
-      if (error) {
-        return res.status(500).json({ error, errorMessage });
-      }
+    const result = await getPortugueseSynonymous(q as string);
 
-      return res.json({ synonyms: result });
-    });
+    return res.json({ synonyms: result });
   } else {
     return res.status(400).json({ error: 'Invalid parameters' });
   }
