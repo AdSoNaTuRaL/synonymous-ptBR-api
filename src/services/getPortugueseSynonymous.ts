@@ -1,12 +1,7 @@
-import request from 'request';
 import cheerio from 'cheerio';
 import incov from 'iconv-lite';
 import rp from 'request-promise';
 import AppError from '../errors/AppError';
-
-type Callback = {
-  (error: boolean, messageError?: string, result?: string | string[]): void;
-};
 
 export async function getPortugueseSynonymous(word: string) {
   const url = `https://www.sinonimos.com.br/${word}`;
