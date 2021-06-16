@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
+import 'express-async-errors';
 import cors from 'cors';
 import router from './routes';
 import AppError from './errors/AppError';
@@ -22,7 +23,5 @@ app.use((err: Error, __: Request, response: Response, _: NextFunction) => {
     message: 'Internal server error',
   });
 });
-
-console.log('🚀 Server runing');
 
 export default app;
