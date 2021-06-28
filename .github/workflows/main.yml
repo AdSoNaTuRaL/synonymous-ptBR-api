@@ -29,9 +29,11 @@ jobs:
           node-version: '12.18.3'
       - uses: borales/actions-yarn@v2.3.0
         with:
+          node-version: '12.18.3'
           cmd: build
       - uses: borales/actions-yarn@v2.3.0
         with:
+          node-version: '12.18.3'
           cmd: test
 
   deploy:
