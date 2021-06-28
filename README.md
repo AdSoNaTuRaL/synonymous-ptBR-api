@@ -9,8 +9,6 @@ Get a synonym, given a word.
   - q (string)(required)
 - Responses
   - Response 200 (application/json)
-    - Synonyms ({ synonyms: string, string[] })
-  - Response 400 (application/json)
-    - Error ({ error: string })
-  - Response 500 (application/json)
-    - Error ({ error: bool, errorMessage: string })
+    - Synonyms ({ synonyms: Promise<string[]> })
+  - Response [Error] (application/json)
+    - Error ({ status: string, message: string })
