@@ -37,8 +37,7 @@ $ yarn test
 
 ## ✍ Browser Extension
 
-Check (this)[https://github.com/AdSoNaTuRaL/cs50-problem-sets/tree/main/final-project], if you want
-use as a browser extension (Google Chrome and Microsoft Edge already tested.)
+Check [this](https://github.com/AdSoNaTuRaL/cs50-problem-sets/tree/main/final-project), if you want use as a browser extension (Google Chrome and Microsoft Edge already tested.)
 
 ## 🤔 Issues
 
