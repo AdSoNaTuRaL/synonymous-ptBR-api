@@ -40,7 +40,7 @@ $ yarn test
 Feel free to **create a new issue** with a respective title and description on the [synonymous-ptBR-api](https://github.com/AdSoNaTuRaL/synonymous-ptBR-api/issues) repository.
 If you already found a solution to your problem, **I would love to review your pull request**!
 
-# Synonym Routes [/synonym]
+## 📍 Synonym Routes [/synonym]
 
 ### Get synonym [GET]
 
