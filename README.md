@@ -35,6 +35,11 @@ $ yarn dev:server
 $ yarn test
 ```
 
+## ✍ Browser Extension
+
+Check (this)[https://github.com/AdSoNaTuRaL/cs50-problem-sets/tree/main/final-project], if you want
+use as a browser extension (Google Chrome and Microsoft Edge already tested.)
+
 ## 🤔 Issues
 
 Feel free to **create a new issue** with a respective title and description on the [synonymous-ptBR-api](https://github.com/AdSoNaTuRaL/synonymous-ptBR-api/issues) repository.
