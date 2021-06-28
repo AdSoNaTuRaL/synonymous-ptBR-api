@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "tsnd --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev:server": "tsnd --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "node dist/server.js",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
