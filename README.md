@@ -11,7 +11,7 @@ The <strong>Synonyms pt-BR API</strong> is a Restful API, built with <strong> No
 - [Express](https://expressjs.com/pt-br/)
 - [Jest](https://jestjs.io/)
 
-## ⤵ How to run
+## ▶️ How to run
 
 ```bash
 # Clone Repository
@@ -29,22 +29,22 @@ $ yarn
 $ yarn dev:server
 ```
 
-## ⤵ Tests
+## 💯 Tests
 
 ```bash
 $ yarn test
 ```
 
-## ✍ Browser Extension
+## 🌐 Browser Extension
 
 Check [this](https://github.com/AdSoNaTuRaL/cs50-problem-sets/tree/main/final-project), if you want use as a browser extension (Google Chrome and Microsoft Edge already tested.)
 
-## 🤔 Issues
+## ⚙️ Issues
 
 Feel free to **create a new issue** with a respective title and description on the [synonymous-ptBR-api](https://github.com/AdSoNaTuRaL/synonymous-ptBR-api/issues) repository.
 If you already found a solution to your problem, **I would love to review your pull request**!
 
-## 📍 Synonym Routes [/synonym]
+## 🚏 Synonym Routes [/synonym]
 
 ### Get synonym [GET]
 
