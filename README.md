@@ -43,18 +43,3 @@ Check [this](https://github.com/AdSoNaTuRaL/cs50-problem-sets/tree/main/final-pr
 
 Feel free to **create a new issue** with a respective title and description on the [synonymous-ptBR-api](https://github.com/AdSoNaTuRaL/synonymous-ptBR-api/issues) repository.
 If you already found a solution to your problem, **I would love to review your pull request**!
-
-## 🚏 Synonym Routes [/synonym]
-
-### Get synonym [GET]
-
-Get a synonym, given a word.
-
-- Query Parameter
-  - Example: http://localhost:3333/synonym?q=example
-  - q (string)(required)
-- Responses
-  - Response 200 (application/json)
-    - Synonyms ({ synonyms: Promise<string[]> })
-  - Response [Error] (application/json)
-    - Error ({ status: string, message: string })
