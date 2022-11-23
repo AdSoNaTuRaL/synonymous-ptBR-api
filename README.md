@@ -1,8 +1,10 @@
 <div align="center">
    <h1>Synonyms pt-BR API</h1>
+   <h3>:warning: Not working at the moment due to changes of plans in Heroku </h3>
+   
 </div>
 
-The <strong>Synonyms pt-BR API</strong> is a Restful API, built with <strong> NodeJS </strong>.
+<p align="center">The <strong>Synonyms pt-BR API</strong> is a Restful API, built with <strong> NodeJS </strong>.</p>
 
 ## 🚀 Technology
 
